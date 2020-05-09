@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
-import './App.scss';
+import React, { useState, useRef } from "react";
+import "./App.css";
 
 function padTime(time) {
-  return time.toString().padStart(2, '0');
+  return time.toString().padStart(2, "0");
 }
 
 export default function App() {
-  const [title, setTitle] = useState('Let the countdown begin!!');
+  const [title, setTitle] = useState("Let the countdown begin!!");
   const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef(null);
@@ -33,7 +33,7 @@ export default function App() {
 
     clearInterval(intervalRef.current);
     intervalRef.current = null;
-    setTitle('Keep it up!');
+    setTitle("Keep it up!");
     setIsRunning(false);
   }
 
@@ -41,7 +41,7 @@ export default function App() {
   function resetTimer() {
     clearInterval(intervalRef.current);
     intervalRef.current = null;
-    setTitle('Ready to go around round?');
+    setTitle("Ready to go around round?");
     setTimeLeft(25 * 60);
     setIsRunning(false);
   }
@@ -51,16 +51,16 @@ export default function App() {
 
   return (
     <>
-      <div className='app'>
+      <div className="app">
         <h1>{title}</h1>
 
-        <div className='timer'>
+        <div className="timer">
           <span>{minutes}</span>
           <span>:</span>
           <span>{seconds}</span>
         </div>
 
-        <div className='buttons'>
+        <div className="buttons">
           {!isRunning && <button onClick={startTimer}>Start</button>}
           {isRunning && <button onClick={stopTimer}>Stop</button>}
           <button onClick={resetTimer}>Reset</button>
